@@ -11,18 +11,24 @@ services:
       - 8000:8000
     depends_on:
       - api
+    networks:
+      - sinopia_network
   pipeline:
-    image: ld4p/sinopia_indexing_pipeline:latest
+    #image: ld4p/sinopia_indexing_pipeline:latest
     # Replace image with build to build from local code. Do not commit docker-compose.yml.
-    # build:
-    #   context: ../sinopia_indexing_pipeline
+    build:
+      context: ../sinopia_indexing_pipeline
+    env_file:
+      ./natlibfi.env
     environment:
       INDEX_URL: http://elasticsearch:9200
-      MONGODB_HOST: mongo
+      MONGODB_HOST: natlibfi_sinopia_mongo_mongo_1
       API_BASE_URL: http://api:3000
     depends_on:
       - elasticsearch
-      - mongo
+#      - mongo
+    networks:
+      - sinopia_network
   elasticsearch:
     image: ld4p/sinopia_elasticsearch:latest
     entrypoint:
@@ -45,23 +51,27 @@ services:
   #     - 1358:1358
   #   depends_on:
   #     - elasticsearch
-  mongo:
-    image: mongo:4.4
-    ports:
-      - 27017:27017
-      - 28017:28017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: sekret
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
-  mongo-setup:
-    image: ld4p/sinopia_dev_setup:latest
-    # Replace image with build to build from local code. Do not commit docker-compose.yml.
-    # build:
-    #   context: ../sinopia_api
-    #   dockerfile: Dockerfile-setup
-    depends_on:
-      - mongo
+    networks:
+      - sinopia_network
+#  mongo:
+#    image: mongo:4.4
+#    ports:
+#      - 27017:27017
+#      - 28017:28017
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: sekret
+#    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+#    volumes:
+#      - /home/juslin/projektit/all_sinopia/mongodb_data:/data/db
+#  mongo-setup:
+#    # image: ld4p/sinopia_dev_setup:latest
+#    # Replace image with build to build from local code. Do not commit docker-compose.yml.
+#    build:
+#      context: ../sinopia_api
+#      dockerfile: Dockerfile-setup
+#    depends_on:
+#      - mongo
   # Uncomment to use Mongo-Express to monitor Mongo. Do not commit docker-compose.yml.
   # mongo-express:
   #   image: mongo-express
@@ -71,17 +81,30 @@ services:
   #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
   #     ME_CONFIG_MONGODB_ADMINPASSWORD: sekret
   api:
-    image: ld4p/sinopia_api:latest
+    #image: ld4p/sinopia_api:latest
     # Replace image with build to build from local code. Do not commit docker-compose.yml.
-    # build:
-    #   context: ../sinopia_api
-    #   dockerfile: Dockerfile
+    build:
+      context: ../sinopia_api
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
+    env_file:
+      ./natlibfi.env
     environment:
-      MONGODB_HOST: mongo
+      MONGODB_HOST: natlibfi_sinopia_mongo_mongo_1
       NO_AUTH: "false"
       AWS_ACCESS_KEY_ID: ${DOCKER_AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${DOCKER_AWS_SECRET_ACCESS_KEY}
-    depends_on:
-      - mongo
+#    depends_on:
+#      - mongo
+    networks:
+      - sinopia_network
+
+#volumes:
+#  mongodb_data:
+#    external: false
+#    driver: local
+
+networks:
+  sinopia_network:
+    external: true
