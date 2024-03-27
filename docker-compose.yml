@@ -44,8 +44,8 @@ services:
       - -Ebootstrap.system_call_filter=false
     user: elasticsearch
     ports:
-      - 9200:9200
-      - 9300:9300
+      - 127.0.0.1:9200:9200
+      - 127.0.0.1:9300:9300
   # Uncomment to use Dejavu to monitor Elasticsearch. Do not commit docker-compose.yml.
   # elasticsearch-ui:
   #   image: appbaseio/dejavu:latest
@@ -95,8 +95,8 @@ services:
     environment:
       MONGODB_HOST: natlibfi_sinopia_mongo_mongo_1
       NO_AUTH: "false"
-      AWS_ACCESS_KEY_ID: ${DOCKER_AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${DOCKER_AWS_SECRET_ACCESS_KEY}
+      AWS_ACCESS_KEY_ID: ${DOCKER_AWS_ACCESS_KEY_ID:?err}
+      AWS_SECRET_ACCESS_KEY: ${DOCKER_AWS_SECRET_ACCESS_KEY:?err}
 #    depends_on:
 #      - mongo
     networks:
