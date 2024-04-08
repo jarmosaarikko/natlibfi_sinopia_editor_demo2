@@ -26,26 +26,26 @@ services:
       INDEX_URL: http://elasticsearch:9200
       MONGODB_HOST: natlibfi_sinopia_mongo_mongo_1
       API_BASE_URL: http://api:3000
-    depends_on:
-      - elasticsearch
+#    depends_on:
+#      - elasticsearch
 #      - mongo
     networks:
       - sinopia_network
-  elasticsearch:
-    image: ld4p/sinopia_elasticsearch:latest
-    entrypoint:
-      - elasticsearch
-      - -Ehttp.port=9200
-      - -Ehttp.cors.enabled=true
-      - -Ehttp.cors.allow-origin=http://searchui:1358,http://localhost:1358,http://127.0.0.1:1358
-      - -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
-      - -Ehttp.cors.allow-credentials=true
-      - -Etransport.host=localhost
-      - -Ebootstrap.system_call_filter=false
-    user: elasticsearch
-    ports:
-      - 127.0.0.1:9200:9200
-      - 127.0.0.1:9300:9300
+#  elasticsearch:
+#    image: ld4p/sinopia_elasticsearch:latest
+#    entrypoint:
+#      - elasticsearch
+#      - -Ehttp.port=9200
+#      - -Ehttp.cors.enabled=true
+#      - -Ehttp.cors.allow-origin=http://searchui:1358,http://localhost:1358,http://127.0.0.1:1358
+#      - -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+#      - -Ehttp.cors.allow-credentials=true
+#      - -Etransport.host=localhost
+#      - -Ebootstrap.system_call_filter=false
+#    user: elasticsearch
+#    ports:
+#      - 127.0.0.1:9200:9200
+#      - 127.0.0.1:9300:9300
   # Uncomment to use Dejavu to monitor Elasticsearch. Do not commit docker-compose.yml.
   # elasticsearch-ui:
   #   image: appbaseio/dejavu:latest
@@ -53,8 +53,8 @@ services:
   #     - 1358:1358
   #   depends_on:
   #     - elasticsearch
-    networks:
-      - sinopia_network
+#    networks:
+#      - sinopia_network
 #  mongo:
 #    image: mongo:4.4
 #    ports:
