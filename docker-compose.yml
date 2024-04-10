@@ -5,6 +5,7 @@ services:
       context: .
       args:
         - USE_FIXTURES='false'
+        - SINOPIA_ENV=${SINOPIA_ENV}
     env_file:
       ./natlibfi.env
     environment:
