@@ -3605,5 +3605,14 @@
     "label": "literalPropertyAttribute",
     "uri": "file:/literalPropertyAttribute.json",
     "component": "list"
+  },
+  {
+    "label": "NatLibFi test",
+    "uri": "file:/natlibfiTest.json",
+    "authority": "natlibfi",
+    "subauthority": "item",
+    "language": "fi",
+    "component": "lookup",
+    "nonldLookup": true
   }
 ]
