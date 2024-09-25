@@ -4,6 +4,10 @@
     "label": "Literaali yksi"
   },
   {
+    "uri": "http://urn.fi/URN:NBN:fi:au:mts:m889",
+    "label": "jakaja"
+  },
+  {
     "uri": "http://sinopia.io/vocabulary/propertyType/literal",
     "label": "Kilpaileva muutos"
   }
