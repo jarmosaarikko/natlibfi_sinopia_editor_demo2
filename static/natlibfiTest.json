@@ -2,9 +2,5 @@
   {
     "uri": "http://sinopia.io/vocabulary/propertyType/literal",
     "label": "Literaali yksi"
-  },
-  {
-    "uri": "http://sinopia.io/vocabulary/propertyType/literal",
-    "label": "Literaali kaksi"
   }
 ]
