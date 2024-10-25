@@ -1815,5 +1815,15 @@
     "label": "mts list test",
     "uri": "https://raw.githubusercontent.com/NatLibFi/lkd/refs/heads/main/test/list_test.json",
     "component": "list"
+  },
+  {
+    "label": "mts m777 RDA Media Types - local",
+    "uri": "file:/m777_RDAMediaTypes.json",
+    "component": "list"
+  },
+  {
+    "label": "mts list test - local",
+    "uri": "file:/list_test.json",
+    "component": "list"
   }
 ]
