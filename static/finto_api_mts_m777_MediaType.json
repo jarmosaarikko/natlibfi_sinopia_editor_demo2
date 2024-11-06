@@ -1,0 +1,94 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "uri": "@id",
+    "type": "@type",
+    "label": "skos:prefLabel",
+    "members": "skos:member",
+    "@language": "fi"
+  },
+  "uri": "http://urn.fi/URN:NBN:fi:au:mts:m777",
+  "members": [
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m1515",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "audio"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m502",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "heijastettava"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m87",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "käytettävissä ilman laitetta"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m1012",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "mikromuoto"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m355",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "mikroskooppinen"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m1288",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "määrittelemätön"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m923",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "stereografinen"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m545",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "tietokonekäyttöinen"
+    },
+    {
+      "uri": "http://urn.fi/URN:NBN:fi:au:mts:m1062",
+      "isSuper": false,
+      "hasMembers": false,
+      "type": [
+        "skos:Concept"
+      ],
+      "label": "video"
+    }
+  ]
+}
